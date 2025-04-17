@@ -18,7 +18,7 @@ mod packet;
 
 static UDP_BIND_ADDR: &str = "0.0.0.0:0";
 static DEFAULT_TCP_BIND_ADDR: &str = "0.0.0.0:4443";
-const DEFAULT_MAX_CONN: u16 = 128;
+const DEFAULT_MAX_CONN: u16 = 4096;
 const READ_BUFFER_SIZE: usize = 131_072;
 
 /*
