@@ -8,12 +8,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - uses: actions-rs/toolchain@v1
+      - name: Install Rust stable
+        uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
 
-      - run: cargo test
+      - name: Run tests
+        run: cargo test
 
-      - run: cargo build --release --all-features
+      - name: Build release with all features
+        run: cargo build --release --all-features
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: release-build
+          path: target/release/
